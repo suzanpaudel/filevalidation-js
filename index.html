@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <input type="file" id="file" />
+    <script>
+      const validateFile = () => {
+        let regex =
+          /^(?:[\w]\:|\\)(\\[A-Za-z_\-\s0-9\.]+)+\.(txt|gif|pdf|doc|docx|xls|xlsx)$/;
+        let fileName = document.getElementById("file");
+        console.log(fileName.value);
+        if (regex.test(fileName.value)) {
+          alert("ok");
+        } else {
+          alert("File not should not have any special characters");
+          fileName.value = "";
+        }
+      };
+
+      document.getElementById("file").addEventListener("change", validateFile);
+    </script>
+  </body>
+</html>
